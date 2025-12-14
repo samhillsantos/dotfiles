@@ -1,0 +1,11 @@
+# 1. Define o Caminho da Chave
+$path = "Registry::HKEY_CLASSES_ROOT\ObsidianFile"
+
+# 2. Força a Descrição Limpa (O nome que aparece)
+Set-ItemProperty -Path $path -Name "(default)" -Value "Nota Obsidian"
+Set-ItemProperty -Path $path -Name "FriendlyTypeName" -Value "Nota Obsidian"
+
+# 3. Reinicia o Explorer para aplicar
+Stop-Process -Name explorer -Force
+
+Write-Host ":: Correção Aplicada. Tente criar um arquivo novo." -ForegroundColor Green
